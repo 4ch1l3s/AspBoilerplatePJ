@@ -1,0 +1,19 @@
+﻿@using internPJ3.Web.Views.Shared.Components.ProductCard
+
+@model ProductCardViewModel
+
+
+
+
+
+  
+
+<div class="col-md-3 col-sm-6 mb-3">
+    <div class="card">
+        <img src="@Model.ProductImagePath" class="card-img-top" alt="@Model.ProductName" style="height: 150px; object-fit: cover;" />
+        <div class="card-body">
+            <h5 class="card-title">@L("ProductName") @Model.ProductName</h5>
+            <h5 class="card-title">@L("ProductPrice") @Model.ProductPrice</h5>
+        </div>
+    </div>
+</div>

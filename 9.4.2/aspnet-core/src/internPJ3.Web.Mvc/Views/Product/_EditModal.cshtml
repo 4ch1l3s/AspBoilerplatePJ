@@ -1,0 +1,95 @@
+﻿@using Abp.Authorization.Users
+@using internPJ3.Web.Models.Common.Modals
+@using internPJ3.Web.Models.Product
+@model EditProductModel // Xác định kiểu dữ liệu của Model View sẽ sử dụng
+@{
+  Layout = null; //Không sử dụng Layout chung
+}
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditProduct")))
+<form name="ProductEditForm" role="form" id="ProductEditForm" class="form-horizontal" enctype="multipart/form-data">
+  <input type="hidden" name="Id" value="@Model.EditProductM.Id" />
+  <div class="modal-body">
+      
+
+    <div class="tab-content mt-4">
+      <div role="tabpanel" class="tab-pane container active" id="edit-product-details">
+
+
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="productname">@L("Product Name")</label>
+          <div class="col-md-9">
+            <input id="productName" type="text" class="form-control" name="ProductName" value="@Model.EditProductM.ProductName" required maxlength="@AbpUserBase.MaxUserNameLength" minlength="2">
+          </div>
+        </div>
+
+
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="productDescription">@L("Product Description")</label>
+          <div class="col-md-9">
+            <input id="productDescription" type="text" class="form-control" name="ProductDescription" value="@Model.EditProductM.ProductDescription" required maxlength="@AbpUserBase.MaxNameLength">
+          </div>
+        </div>
+
+
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="productQuantity">@L("Product Quantity")</label>
+          <div class="col-md-9">
+            <input id="productQuantity" type="number" class="form-control" name="ProductQuantity" value="@Model.EditProductM.ProductQuantity" min="0" step="1">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label">@L("Product Price")</label>
+          <div class="col-md-9">
+            <input type="number" class="form-control" value="@Model.EditProductM.ProductPrice" name="ProductPrice" min="0" step="1000">
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="dynamicDropdownCategory" class="form-label">@L("Select Category:")</label>
+          <select id="dynamicDropdownCategory" name="CategoryId" asp-for="@Model.SelectedCategory" asp-items="@Model.CategoryList" class="form-control ">
+          </select>
+          @*asp.for nhận vào 1 id - tức Value của asp.items và hiển thị phần CategoryName tương ứng - tức phần Text của asp-items(CategoryList)
+            - asp-items nhận vào List
+            - asp-for nhận vào int, nếu giá trị int này khớp với id trong List, nó sẽ render ra giá trị của id đó
+          *@
+        </div>
+
+        
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="productState">@L("Product State")</label>
+          <div class="col-md-9">
+            
+            <input id="productState" type="checkbox" name="ProductState" value="1" @(Model.EditProductM.ProductState == internPJ3.Product.productState.Selling ? "" : "checked") />
+          </div>
+        </div>
+
+
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="productState">@L("Img")</label>
+          <div class="col-md-9">
+            <img src="@Model.EditProductM.ProductImagePath" alt="Product Image" class="img-responsive img-thumbnail" style="height:208px;width:460px" />
+            
+            <div class="mt-2 d-flex gap-2">
+
+              <input type="file" name="ProductImage" id="fileInputEdit" class="form-control" />
+              <input type="hidden" name="ProductImagePath" id="ProductImagePathEdit" />
+
+              <button class="btn btn-danger delete-product-img" data-product-id="@Model.EditProductM.Id" data-product-filePath="@Model.filePath">Delete</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+  @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</form>
+
+<script src="~/view-resources/Views/Product/_EditModal.js" asp-append-version="true"></script>

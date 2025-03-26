@@ -1,0 +1,43 @@
+﻿@using Abp.Authorization.Users
+@using internPJ3.Web.Models.Common.Modals
+@using internPJ3.Web.Models.Product
+@using internPJ3.Web.Models.Shop
+@model ShopModel
+
+
+@{
+	Layout = "~/Views/Shop/Layout/_ShopLayout2.cshtml";
+}
+
+
+
+
+<div class="container pt-5">
+  <div class="row">
+    <!-- Phần 1: Bên trái -->
+    <div class="col-md-6 text-center">
+      <!-- Ảnh minh họa sản phẩm -->
+      <img src="@Model.DetailsProductM.ProductImagePath" alt="Product Image" class="img-fluid mb-3" />
+
+      <!-- Các nút -->
+      <div>
+        <button class="btn btn-primary me-2">@L("Buy")</button>
+        <button class="btn btn-secondary">@L("Add to cart")</button>
+      </div>
+    </div>
+
+    <!-- Phần 2: Bên phải -->
+    <div class="col-md-6">
+      <!-- Tên sản phẩm -->
+      <h3>@Model.DetailsProductM.ProductName</h3>
+
+      <!-- Giá sản phẩm -->
+      <h4 style="color: red;">@Model.DetailsProductM.ProductPrice.ToString("N0").Replace(",", ".") VND</h4>
+
+      <!-- Mô tả sản phẩm -->
+      <p>
+        @Model.DetailsProductM.ProductDescription
+      </p>
+    </div>
+  </div>
+</div>

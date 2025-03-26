@@ -1,0 +1,45 @@
+﻿@using internPJ3.Web.Models.Task
+@model TaskModel
+
+@* @foreach(var item in Model.TaskListDtos){ *@
+@* 	<span>@item.Title</span> *@
+@* 	<span>@item.Description</span> *@
+@* 	<span>@item.CreationTime</span> *@
+@* } *@
+
+
+
+
+<div class="row">
+    <div>
+        <ul class="list-group" id="TaskList">
+            @foreach (var item in Model.TaskListDtos)
+            {
+                <li class="list-group-item">
+                    <span class="pull-right label">@item.State</span>
+                    <h4 class="list-group-item-heading">@item.Description</h4>
+                    <div class="list-group-item-text">
+                       item.CreationTime.ToString("yyyy-MM-dd HH:mm:ss")| @(item.AssignedPersonName ?? L("Unassigned")) 
+                    </div>
+                </li>
+            }
+        </ul>
+
+        <a class="btn btn-primary btn-sm" asp-action="Create">@L("AddNew")</a>
+
+    </div>
+</div>
+
+@* <h2> *@
+@*     @L("TaskList") *@
+@*     <span class="pull-right"> *@
+@*         @Html.DropDownListFor( *@
+@*                  model => model.SelectedTaskState, *@
+@*                  Model.GetTasksStateSelectListItems(LocalizationManager), *@
+@*                  new *@
+@*                  { *@
+@*                      @class = "form-control", *@
+@*                      id = "TaskStateCombobox" *@
+@*                  }) *@
+@*     </span> *@
+@* </h2> *@

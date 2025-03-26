@@ -1,0 +1,107 @@
+﻿@using Abp.Authorization.Users
+@using internPJ3.Web.Models.Common.Modals
+@using internPJ3.Web.Models.Tour
+@model TourModel
+@{
+	Layout = null;
+}
+
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("UpdateTour")))
+<form name="TourUpdateForm" role="form" class="form-horizontal" id="TourUpdateForm" enctype="multipart/form-data">
+	<div class="modal-body">
+
+		<input type="hidden" class="form-control" name="Id" value="@Model.Id">
+
+		<div class="form-group row required">
+			<label class="col-md-3 col-form-label">@L("TourName")</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" name="TourName" value="@Model.TourName" required maxlength="256" minlength="2">
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="col-md-3 col-form-label">@L("MinGroupSize")</label>
+			<div class="col-md-9">
+				<input type="number" class="form-control" value="@Model.MinGroupSize" name="MinGroupSize" min="0" step="1">
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="col-md-3 col-form-label">@L("MaxGroupSize")</label>
+			<div class="col-md-9">
+				<input type="number" class="form-control" value="@Model.MaxGroupSize" name="MaxGroupSize" min="0" step="1">
+			</div>
+		</div>
+
+		<div class="form-group row ">
+			<label class="col-md-3 col-form-label">@L("TourType")</label>
+			<div class="col-md-9">
+				<select class="form-control" name="TourTypeCid">
+					<option value="1">@L("Province")</option>
+					<option value="2">@L("InterProvincial")</option>
+					<option value="3">@L("interNational")</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group row ">
+			<label class="col-md-3 col-form-label">@L("StartDate")</label>
+			<div class="col-md-9">
+				<input type="date" value="@(Model.EndDate?.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))" class="form-control" name="StartDate">
+			</div>
+		</div>
+
+		<div class="form-group row ">
+			<label class="col-md-3 col-form-label">@L("EndDate")</label>
+			<div class="col-md-9">
+				<input type="date" value="@(Model.EndDate?.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture))" class="form-control" name="EndDate">
+			</div>
+		</div>
+
+		<div class="form-group row required">
+			<label class="col-md-3 col-form-label">@L("Transportation")</label>
+			<div class="col-md-9">
+				<select class="form-control" name="Transportation">
+					<option value="bus">@L("Bus")</option>
+					<option value="limo">@L("Limo")</option>
+					<option value="bike">@L("Bike")</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="col-md-3 col-form-label">@L("TourPrice")</label>
+			<div class="col-md-9">
+				<input type="number" class="form-control" value="@Model.TourPrice?.ToString("0.##", System.Globalization.CultureInfo.InvariantCulture)" name="TourPrice" min="0">
+			</div>
+		</div>
+
+
+		<div class="form-group row required">
+			<label class="col-md-3 col-form-label">@L("PhoneNumber")</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" value="@Model.PhoneNumber" name="PhoneNumber" required maxlength="15">
+			</div>
+		</div>
+
+		<div class="form-group row required">
+			<label class="col-md-3 col-form-label">@L("Description")</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" value="@Model.Description" name="Description" required maxlength="64">
+			</div>
+		</div>
+
+
+		@* File *@
+		<div class="form-group row">
+			<label class="col-md-3 col-form-label">@L("Attachment")</label>
+			<div class="col-md-9">
+				<input type="file" name="AttachmentFile" id="fileInputUpdate" class="form-control" />
+				<input type="hidden" name="Attachment" class="Attachment" />
+			</div>
+		</div>
+	</div>
+	@await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</form>
+
+<script src="~/view-resources/Views/Tour/_UpdateModal.js" asp-append-version="true"></script>

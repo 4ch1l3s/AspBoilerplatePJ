@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="vi">
+
+
+	<texts>
+		<text name="HomePage" value="Trang chủ" />
+		<text name="About" value="Giới thiệu" />
+		<text name="WelcomeMessage" value="Chào mừng đến với internPJ3!" />
+		<text name="FormIsNotValidMessage" value="Biểu mẫu không hợp lệ. Vui lòng kiểm tra và sửa lỗi." />
+		<text name="TenantNameCanNotBeEmpty" value="Tên đơn vị thuê không được để trống" />
+		<text name="InvalidUserNameOrPassword" value="Tên đăng nhập hoặc mật khẩu không hợp lệ" />
+		<text name="ThereIsNoTenantDefinedWithName{0}" value="Không có đơn vị thuê nào được định nghĩa với tên {0}" />
+		<text name="TenantIsNotActive" value="Đơn vị thuê {0} không hoạt động." />
+		<text name="UserIsNotActiveAndCanNotLogin" value="Người dùng {0} không hoạt động và không thể đăng nhập." />
+		<text name="UserEmailIsNotConfirmedAndCanNotLogin">Địa chỉ email của bạn chưa được xác nhận. Bạn không thể đăng nhập.</text>
+		<text name="UserLockedOutMessage">Tài khoản người dùng đã bị khóa. Vui lòng thử lại sau.</text>
+		<text name="PleaseEnterLoginInformation" value="Vui lòng nhập thông tin đăng nhập" />
+		<text name="TenancyName" value="Tên đơn vị thuê" />
+		<text name="UserNameOrEmail" value="Tên đăng nhập hoặc email" />
+		<text name="Password" value="Mật khẩu" />
+		<text name="ResetPassword" value="Đặt lại mật khẩu" />
+		<text name="UpdatePassword" value="Cập nhật mật khẩu" />
+		<text name="RememberMe" value="Ghi nhớ tôi" />
+		<text name="LogIn" value="Đăng nhập" />
+		<text name="LoginFailed" value="Đăng nhập thất bại!" />
+		<text name="NameSurname" value="Họ và tên" />
+		<text name="UserName" value="Tên đăng nhập" />
+		<text name="Name" value="Tên" />
+		<text name="Surname" value="Họ" />
+		<text name="EmailAddress" value="Địa chỉ email" />
+		<text name="Tenants" value="Đơn vị thuê" />
+		<text name="SavedSuccessfully" value="Lưu thành công" />
+		<text name="CreateNewTenant" value="Tạo đơn vị thuê mới" />
+		<text name="AdminEmailAddress" value="Địa chỉ email quản trị viên" />
+		<text name="AdminPassword" value="Mật khẩu quản trị viên" />
+		<text name="Save" value="Lưu" />
+		<text name="Cancel" value="Hủy" />
+		<text name="TenantName_Regex_Description" value="Tên đơn vị thuê phải có ít nhất 2 ký tự, bắt đầu bằng chữ cái và tiếp tục với chữ cái, số, dấu gạch ngang hoặc dấu gạch dưới." />
+		<text name="DefaultPasswordIs" value="Mật khẩu mặc định là {0}" />
+		<text name="CanBeEmptyToLoginAsHost" value="Có thể để trống để đăng nhập với tư cách máy chủ." />
+		<text name="Register" value="Đăng ký" />
+		<text name="OrLoginWith" value="Hoặc đăng nhập bằng" />
+		<text name="WaitingForActivationMessage" value="Tài khoản của bạn đang chờ được kích hoạt bởi quản trị viên hệ thống." />
+		<text name="TenantSelection" value="Chọn đơn vị thuê" />
+		<text name="TenantSelection_Detail" value="Vui lòng chọn một trong các đơn vị thuê sau." />
+		<text name="Logout" value="Đăng xuất" />
+		<text name="RegisterFormUserNameInvalidMessage">Vui lòng không nhập địa chỉ email làm tên đăng nhập.</text>
+		<text name="DatabaseConnectionString" value="Chuỗi kết nối cơ sở dữ liệu" />
+		<text name="Users" value="Người dùng" />
+		<text name="IsActive" value="Đang hoạt động" />
+		<text name="FullName" value="Họ và tên đầy đủ" />
+		<text name="CreateNewUser" value="Tạo người dùng mới" />
+		<text name="Yes" value="Có" />
+		<text name="No" value="Không" />
+		<text name="Optional" value="Tùy chọn" />
+		<text name="LeaveEmptyToSwitchToHost">Để trống để chuyển sang máy chủ</text>
+		<text name="CurrentTenant">Đơn vị thuê hiện tại</text>
+		<text name="NotSelected">Chưa chọn</text>
+		<text name="Change">Thay đổi</text>
+		<text name="ChangeTenant">Thay đổi đơn vị thuê</text>
+		<text name="MultiLevelMenu">Menu nhiều cấp</text>
+		<text name="Back">Quay lại</text>
+		<text name="SuccessfullyRegistered">Đăng ký thành công</text>
+		<text name="WaitingForEmailActivation">Địa chỉ email của bạn cần được kích hoạt</text>
+		<text name="Roles">Vai trò</text>
+		<text name="DisplayName">Tên hiển thị</text>
+		<text name="Edit">Chỉnh sửa</text>
+		<text name="Delete">Xóa</text>
+		<text name="CreateNewRole">Tạo vai trò mới</text>
+		<text name="RoleName">Tên vai trò</text>
+		<text name="Actions">Hành động</text>
+		<text name="CouldNotCompleteLoginOperation">Không thể hoàn thành quá trình đăng nhập. Vui lòng thử lại sau.</text>
+		<text name="CouldNotValidateExternalUser">Không thể xác thực người dùng bên ngoài</text>
+		<text name="EditRole">Chỉnh sửa vai trò</text>
+		<text name="EditTenant">Chỉnh sửa đơn vị thuê</text>
+		<text name="EditUser">Chỉnh sửa người dùng</text>
+		<text name="TenantIdIsNotActive{0}">TenantId {0} không hoạt động</text>
+		<text name="UnknownTenantId{0}">Không xác định được tenantId {0}</text>
+		<text name="ThisFieldIsRequired">Trường này là bắt buộc</text>
+		<text name="PleaseWait">Vui lòng chờ...</text>
+		<text name="Administration">Quản trị</text>
+		<text name="ClearAll">Xóa tất cả</text>
+		<text name="ClearOthers">Xóa các mục khác</text>
+		<text name="LabelOptions">Tùy chọn nhãn</text>
+		<text name="Permissions">Quyền hạn</text>
+		<text name="RoleDescription">Mô tả vai trò</text>
+		<text name="Refresh">Làm mới</text>
+		<text name="Create">Tạo</text>
+		<text name="UserDetails">Thông tin người dùng</text>
+		<text name="UserRoles">Vai trò người dùng</text>
+		<text name="ConfirmPassword">Xác nhận mật khẩu</text>
+		<text name="Version">Phiên bản</text>
+		<text name="On">Bật</text>
+		<text name="Off">Tắt</text>
+		<text name="AreYouSureWantToDelete">Bạn có chắc muốn xóa {0} không?</text>
+		<text name="SuccessfullyDeleted">Xóa thành công</text>
+		<text name="StartTyping">Bắt đầu gõ</text>
+		<text name="Skins">Giao diện</text>
+		<text name="Settings">Cài đặt</text>
+		<text name="Filter">Lọc</text>
+		<text name="CurrentPassword">Mật khẩu hiện tại</text>
+		<text name="NewPassword">Mật khẩu mới</text>
+		<text name="ConfirmNewPassword">Xác nhận mật khẩu mới</text>
+		<text name="PasswordsDoNotMatch">Mật khẩu không khớp</text>
+		<text name="PasswordsMustBeAtLeast8CharactersContainLowercaseUppercaseNumber">Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ thường, chữ in hoa và số</text>
+		<text name="UserDeleteWarningMessage">Người dùng {0} sẽ bị xóa.</text>
+		<text name="RoleDeleteWarningMessage">Vai trò {0} sẽ bị xóa và không được gán cho bất kỳ người dùng nào.</text>
+		<text name="TenantDeleteWarningMessage">Đơn vị thuê {0} sẽ bị xóa.</text>
+		<text name="SearchWithThreeDot">Tìm kiếm...</text>
+		<text name="PleaseEnterAtLeastNCharacter">Vui lòng nhập ít nhất {0} ký tự</text>
+		<text name="PleaseEnterNoMoreThanNCharacter">Vui lòng nhập không quá {0} ký tự</text>
+		<text name="InvalidEmailAddress">Địa chỉ email không hợp lệ</text>
+		<text name="InvalidPattern">Không hợp lệ</text>
+		<text name="PairsDoNotMatch">Không khớp</text>
+		<text name="All">Tất cả</text>
+		<text name="TotalRecordsCount">Tổng: {0}</text>
+		<text name="Search">Tìm kiếm</text>
+		<text name="Clear">Xóa</text>
+		<text name="ResetPasswordStepOneInfo">1. Nhập mật khẩu quản trị viên của bạn</text>
+		<text name="ResetPasswordStepTwoInfo">2. Sao chép mật khẩu ngẫu nhiên này để gửi cho người dùng</text>
+		<text name="UsersActivation">Kích hoạt người dùng</text>
+		<text name="403PageHeader">Bị cấm truy cập</text>
+		<text name="403PageDescription">Bạn không có quyền truy cập tài nguyên này. Vui lòng liên hệ quản trị viên của bạn.</text>
+		<text name="403PageButton">Quay lại Bảng điều khiển</text>
+
+		<text name="ProductList">Quản lý danh sách sản phẩm</text>
+		<text name="Details">Chi tiết</text>
+		<text name="Product Name">Tên sản phẩm</text>
+		<text name="Product Description">Mô tả sản phẩm</text>
+		<text name="Buy Able?">Trạng thái</text>
+		<text name="Quantity">Số lượng</text>
+		<text name="Product State">Trạng thái</text>
+		<text name="Select Category:">Chọn danh mục:</text>
+		<text name="Product image">Hình ảnh sản phẩm</text>
+		<text name="Create new product">Tạo sản phẩm mới</text>
+		<text name="Img">Hình ảnh</text>
+		<text name="Details Product">Chi tiết sản phẩm</text>
+		<text name="CategoryList">Quản lý danh mục</text>
+		<text name="Category Name">Tên danh mục</text>
+		<text name="Category Description">Mô tả danh mục</text>
+		<text name="EditCategory">Chỉnh sửa danh mục</text>
+		<text name="Category List">Quản lý danh mục</text>
+		<text name="CategoryName">Tên danh mục</text>
+		<text name="CategoryDescription">Mô tả danh mục</text>
+		<text name="Edit category">Chỉnh sửa danh mục</text>
+		<text name="CreateNewCategory">Tạo danh mục mới</text>
+		<text name="Product Quantity">Số lượng sản phẩm</text>
+		<text name="Product name">Tên sản phẩm</text>
+		<text name="Product description">Mô tả sản phẩm</text>
+		<text name="Product quantity">Số lượng sản phẩm</text>
+		<text name="Product state">Trạng thái</text>
+		<text name="ProductImage">Hình ảnh sản phẩm</text>
+		<text name="CreateNewProduct">Tạo sản phẩm mới</text>
+		<text name="EditProduct">Chỉnh sửa sản phẩm</text>
+		
+		<text name="CategoryDeleteVaildF">Không thể xóa danh mục </text>
+		<text name="CategoryDeleteVaildA"> vì vẫn còn sản phẩm thuộc danh mục này trong cơ sở dữ liệu</text>
+		
+		<text name="product-name-required" value="Nhập tên sản phẩm" />
+		<text name="product-name-minlength" value="Tên sản phẩm phải có ít nhất 3 ký tự" />
+		<text name="product-name-maxlength" value="Nó... nó dài quá :0" />
+		<text name="product-description-required" value="Nhập mô tả sản phẩm" />
+		<text name="product-description-minlength" value="Nhập thêm chút nữa" />
+		<text name="product-quantity-digits" value="Không bé ơi, không cho nhập ký tự đâu" />
+		<text name="product-quantity-required" value="Nhập số lượng" />
+
+
+		<text name="DefaultDelete">Không thể xóa danh mục mặc định!</text>
+		<text name="Error">Lỗi</text>
+		<text name="Product Image">Ảnh sản phẩm not found :(</text>
+		
+		<text name="Uncategory">Chưa phân loại</text>
+
+		<text name="tourname-required">Tên tour là bắt buộc.</text>
+		<text name="tourname-maxlength">Tên tour không được vượt quá giới hạn ký tự tối đa.</text>
+		<text name="tourname-minlength">Tên tour phải có ít nhất số ký tự yêu cầu.</text>
+		<text name="tour-startdate-min">Ngày bắt đầu không thể sớm hơn hôm nay.</text>
+		<text name="tour-enddate-min">Ngày kết thúc không thể sớm hơn ngày bắt đầu.</text>
+		<text name="phonenumber-minlength">Số điện thoại phải có ít nhất 6 chữ số.</text>
+		<text name="phonenumber-maxlength">Số điện thoại không được vượt quá 20 chữ số.</text>
+		<text name="phonenumber-digit">Số điện thoại chỉ có thể chứa chữ số và dấu `+` ở đầu (nếu có).</text>
+		<text name="description-minlength">Mô tả phải có ít nhất số ký tự yêu cầu.</text>
+		<text name="required-minlength">Trường này phải chứa ít nhất số ký tự yêu cầu.</text>
+		<text name="Bus">Xe buýt</text>
+		<text name="Limo">Xe limousine</text>
+		<text name="MotorBike">Xe máy</text>
+		<text name="CreateNewTour">Tạo tour mới</text>
+		<text name="TourName">Tên tour</text>
+		<text name="MinGroupSize">Số lượng nhóm tối thiểu</text>
+		<text name="MaxGroupSize">Số lượng nhóm tối đa</text>
+		<text name="TourType">Loại tour</text>
+		<text name="Province">Nội địa</text>
+		<text name="InterProvincial">Liên tỉnh</text>
+		<text name="InterNational">Quốc tế</text>
+		<text name="StartDate">Ngày bắt đầu</text>
+		<text name="EndDate">Ngày kết thúc</text>
+		<text name="Transportation">Phương tiện di chuyển</text>
+		<text name="TourPrice">Giá tour</text>
+		<text name="PhoneNumber">Số điện thoại</text>
+		<text name="Description">Mô tả</text>
+		<text name="Attachment">Tệp đính kèm</text>
+		<text name="TourList">Danh sách tour</text>
+		<text name="Tour">Tour</text>
+		<text name="Update">Cập nhật</text>
+		<text name="UpdateTour">Cập nhật tour</text>
+		<text name="GroupSize">Quy mô nhóm</text>
+		<text name="Date">Ngày</text>
+
+
+
+
+	</texts>
+
+
+
+
+</localizationDictionary>

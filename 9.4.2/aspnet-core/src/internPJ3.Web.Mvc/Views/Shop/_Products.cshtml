@@ -1,0 +1,53 @@
+﻿@model internPJ3.Web.Models.Shop.ShopModel
+@{
+  Layout = "~/Views/Shop/Layout/_ShopLayout.cshtml";
+}
+
+
+@*Product Render*@
+
+
+
+<div class="container pt-5" id="product-container">
+  <div class="row">
+
+ 
+
+    @foreach (var item in Model.ProductList)
+    {
+      <div class="col-md-3 col-sm-6 mb-3">
+        <div class="card">
+          <a href="/Shop/Details/@item.Id" class="stretched-link"></a>
+          <img src="@item.ProductImagePath" class="card-img-top" alt="@item.ProductName" style="height: 150px; object-fit: cover;" />
+          <div class="card-body" style="height: 120px;">
+
+            <h5 class="card-title">@item.ProductName</h5>
+            <br />
+            <h5 class="card-title" style="color:red; font-weight: bold;">
+              @item.ProductPrice.ToString("N0").Replace(",", ".") VND
+            </h5>
+          </div>
+          <button class="btn btn-sm btn-info position-relative add-to-cart" style="z-index: 1" data-product-id="@item.Id">@L("AddToCart")</button>
+        </div>
+      </div>
+    }
+
+
+  </div>
+</div>
+
+<!-- View More Button -->
+@if (Model.CurrentPage < Model.TotalPage)
+{
+  <div class="row justify-content-center mt-3">
+    <button id="view-more-btn" class="btn btn-primary"
+            data-current-page="@Model.CurrentPage"
+            data-total-page="@Model.TotalPage"
+            data-page-size="@Model.PageSize">
+      @L("View More")
+    </button>
+  </div>
+}
+
+
+<script src="~/view-resources/Views/Shop/_Products.js" asp-append-version="true"></script>

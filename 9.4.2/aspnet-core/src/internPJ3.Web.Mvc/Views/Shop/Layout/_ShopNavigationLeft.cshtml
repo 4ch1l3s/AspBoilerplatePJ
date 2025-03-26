@@ -1,0 +1,37 @@
+﻿@model internPJ3.Web.Models.Shop.ShopModel
+
+
+
+
+
+<!-- Sidebar Fixed ở bên trái -->
+<div class="position-absolute top-0 start-0 p-3" style="width: 250px; height: 100vh;">
+  @if (Model?.Categories != null && Model.Categories.Any())
+  {
+      foreach (var category in Model.Categories)
+      {
+          <div class="mb-3">
+              <h4>@category.CategoryName</h4>
+              @if (category.Products != null && category.Products.Any())
+              {
+                  foreach (var product in category.Products)
+                  {
+                      <div>
+                          <a href="@Url.Action("Details", "Shop", new { id = product.Id })">
+                              @product.ProductName
+                          </a>
+                      </div>
+                  }
+              }
+              else
+              {
+                  <div>No products available.</div>
+              }
+          </div>
+      }
+  }
+  else
+  {
+      <div>No categories available.</div>
+  }
+</div>

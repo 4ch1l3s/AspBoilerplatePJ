@@ -1,0 +1,48 @@
+﻿@{
+  Layout = "";
+}
+
+
+@using Abp.Configuration.Startup
+@using Abp.Web.Mvc.Alerts
+@using Abp.Web.Security.AntiForgery
+@using internPJ3.Web.Resources
+@inject IAbpAntiForgeryManager AbpAntiForgeryManager
+@inject IMultiTenancyConfig MultiTenancyConfig
+@inject IWebResourceManager WebResourceManager
+@inject IAlertManager AlertManager
+@inject ILanguageManager LanguageManager
+@{
+  AbpAntiForgeryManager.SetCookie(Context);
+
+  var pageTitle = !string.IsNullOrWhiteSpace(ViewBag.Title) ? ViewBag.Title + " / " : "";
+  pageTitle += "Shopee";
+}
+<!DOCTYPE html>
+<html lang="@LanguageManager.CurrentLanguage.Name">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>@pageTitle</title>
+
+  @await Html.PartialAsync("~/Views/Shared/Layout/_Styles.cshtml")
+  @RenderSection("styles", required: false)
+</head>
+<body class="hold-transition sidebar-mini">
+  <div class="">
+    @await Html.PartialAsync("_ShopHeaderTop.cshtml")
+    @await Html.PartialAsync("_ShopHeaderDown.cshtml")
+    @* @await Html.PartialAsync("_SideBar.cshtml") *@
+    <div class="">
+      @RenderBody()
+    </div>
+    @* @await Html.PartialAsync("_Footer.cshtml") *@
+  </div>
+
+  @await Html.PartialAsync("~/Views/Shared/Layout/_Scripts.cshtml")
+  @RenderSection("scripts", required: false)
+  @WebResourceManager.RenderScripts()
+</body>
+</html>

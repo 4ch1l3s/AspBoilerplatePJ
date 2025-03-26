@@ -1,0 +1,86 @@
+﻿@using Abp.Authorization.Users
+@using internPJ3.Web.Models.Common.Modals
+@using internPJ3.Web.Models.Product
+@model ProductModel
+@{
+	Layout = null;
+}
+<div class="modal fade" id="ProductCreateModal" tabindex="-1" role="dialog" aria-labelledby="ProductCreateModalLabel" data-backdrop="static">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+
+
+			@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNewProduct")))
+			<form name="ProductCreateForm" role="form" class="form-horizontal" id="ProductCreateForm" enctype="multipart/form-data">
+				<div class="modal-body">
+
+					<div class="form-group row required">
+						<label class="col-md-3 col-form-label">@L("Product Name")</label>
+						<div class="col-md-9">
+							<input type="text" class="form-control" name="ProductName" required maxlength="256" minlength="2">
+						</div>
+					</div>
+
+					<div class="form-group row required">
+						<label class="col-md-3 col-form-label">@L("Product Description")</label>
+						<div class="col-md-9">
+							<input type="text" class="form-control" name="ProductDescription" required maxlength="@AbpUserBase.MaxNameLength">
+						</div>
+					</div>
+
+					<div class="form-group row required">
+						<label class="col-md-3 col-form-label">@L("Product Quantity")</label>
+						<div class="col-md-9">
+							<input type="number" class="form-control" name="ProductQuantity" min="0" step="1">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-md-3 col-form-label">@L("Product Price")</label>
+						<div class="col-md-9">
+							<input type="number" class="form-control" name="ProductPrice" min="0" step="1000">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-md-3 col-form-label" for="ProductIsActive">@L("Product State")</label>
+						<div class="col-md-9">
+							<input type="checkbox" name="ProductState" value="1" id="ProductIsActive" checked />
+						</div>
+					</div>
+
+
+					@* <select asp-for="@Model.ProductList"></select> *@
+
+					<div class="mb-3">
+						<label for="dynamicDropdownCategory" class="form-label">@L("Select Category:")</label>
+						<select id="dynamicDropdownCategory" name="CategoryId" asp-for="SelectedCategory" asp-items="@Model.CategoryList" class="form-control ">
+						</select>
+					</div>
+
+					@* <select asp-for="@Model.ProductList" asp-items="@Model.ProductList"></select> *@
+
+					@* img *@
+					<div class="form-group row">
+						<label class="col-md-3 col-form-label">@L("ProductImage")</label>
+						<div class="col-md-9">
+							<input type="file" name="ProductImage" id="fileInput" class="form-control" />
+							<input type="hidden" name="ProductImagePath" class="ProductImagePath" />
+						</div>
+					</div>
+
+
+
+
+
+
+				</div>
+
+
+
+
+				@await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+			</form>
+		</div>
+	</div>
+</div>

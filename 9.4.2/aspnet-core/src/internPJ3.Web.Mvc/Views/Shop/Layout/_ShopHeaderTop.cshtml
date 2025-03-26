@@ -1,0 +1,37 @@
+﻿@using internPJ3.Web.Views.Shared.Components.RightNavbarLanguageSwitch
+@using internPJ3.Web.Views.Shared.Components.RightNavbarUserArea
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-3" style="height: 120px;">
+  <div class="container-fluid d-flex align-items-center">
+    <!-- Logo -->
+    <a class="navbar-brand" href="/Shop">
+      <img src="~/img/Shop/logoShop.png" alt="Logo" height="100">
+    </a>
+
+    <!-- Thanh tìm kiếm -->
+    <form id="searchForm" class="d-flex mx-3 flex-grow-1 justify-content-center" style="max-width: 50%;" method="GET" action="/Shop/Products">
+      <input name="searchString" id="searchInput" class="form-control me-2" type="search" placeholder="@L("Placeholder")" aria-label="Search"
+             style="border-radius: 0; height: 40px; flex: 1;">
+      <button class="btn" type="submit" id="searchButton" style="border-radius: 0; background-color: #17a2b8 ; color: white; height: 40px; width: 40px;">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+    
+
+    <!-- Các icon bên phải -->
+    <ul class="navbar-nav d-flex align-items-center">
+      <!-- Giỏ hàng -->
+      <li class="nav-item mx-2">
+        <a class="nav-link" href="/Cart">
+          <i class="fa fa-shopping-cart fa-lg"></i>
+        </a>
+      </li>
+      <!-- Ngôn ngữ và Đăng xuất -->
+      <li class="nav-item mx-2">
+        @await Component.InvokeAsync(typeof(RightNavbarLanguageSwitchViewComponent))
+        @await Component.InvokeAsync(typeof(RightNavbarUserAreaViewComponent))
+      </li>
+
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,121 @@
+﻿@using Abp.Authorization.Users
+@using internPJ3.Web.Models.Common.Modals
+@using internPJ3.Web.Models.Tour
+@model TourModel
+@{
+	Layout = null;
+}
+<div class="modal fade" id="TourCreateModal" tabindex="-1" role="dialog" aria-labelledby="TourCreateModalLabel" data-backdrop="static">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+
+			
+			@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNewTour")))
+			<form name="TourCreateForm" role="form" class="form-horizontal" id="TourCreateForm" enctype="multipart/form-data">
+				<div class="modal-body">
+
+					<div class="form-group row required">
+						<label class="col-md-3 col-form-label">@L("TourName")</label>
+						<div class="col-md-9">
+							<input type="text" class="form-control" name="TourName" required maxlength="256" minlength="2">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-md-3 col-form-label">@L("MinGroupSize")</label>
+						<div class="col-md-9">
+							<input type="number" class="form-control" name="MinGroupSize" min="0" step="1">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-md-3 col-form-label">@L("MaxGroupSize")</label>
+						<div class="col-md-9">
+							<input type="number" class="form-control" name="MaxGroupSize" min="0" step="1">
+						</div>
+					</div>
+
+					<div class="form-group row ">
+						<label class="col-md-3 col-form-label">@L("TourType")</label>
+						<div class="col-md-9">
+							<select class="form-control" name="TourTypeCid">
+								<option value="1">@L("Province")</option>
+								<option value="2">@L("InterProvincial")</option>
+								<option value="3">@L("InterNational")</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group row ">
+						<label class="col-md-3 col-form-label">@L("StartDate")</label>
+						<div class="col-md-9">
+							<input type="date" class="form-control" name="StartDate">
+						</div>
+					</div>
+
+					<div class="form-group row ">
+						<label class="col-md-3 col-form-label">@L("EndDate")</label>
+						<div class="col-md-9">
+							<input type="date" class="form-control" name="EndDate">
+						</div>
+					</div>
+
+					<div class="form-group row required">
+						<label class="col-md-3 col-form-label">@L("Transportation")</label>
+						<div class="col-md-9">
+							<select class="form-control" name="Transportation">
+								<option value="bus">@L("Bus")</option>
+								<option value="limo">@L("Limo")</option>
+								<option value="bike">@L("MotorBike")</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-md-3 col-form-label">@L("TourPrice")</label>
+						<div class="col-md-9">
+							<input type="number" class="form-control" name="TourPrice" min="0" step="1000">
+						</div>
+					</div>
+
+
+					<div class="form-group row required">
+						<label class="col-md-3 col-form-label">@L("PhoneNumber")</label>
+						<div class="col-md-9">
+							<input type="text" class="form-control" name="PhoneNumber" required maxlength="15">
+						</div>
+					</div>
+
+					<div class="form-group row required">
+						<label class="col-md-3 col-form-label">@L("Description")</label>
+						<div class="col-md-9">
+							<input type="text" class="form-control" name="Description" required maxlength="64">
+						</div>
+					</div>
+
+
+					@* File *@
+					<div class="form-group row">
+						<label class="col-md-3 col-form-label">@L("Attachment")</label>
+						<div class="col-md-9">
+							<input type="file" name="AttachmentFile" id="fileInput" class="form-control" />
+							<input type="hidden" name="Attachment" class="Attachment" />
+						</div>
+					</div>
+
+
+
+
+
+
+
+				</div>
+
+
+
+
+				@await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+			</form>
+		</div>
+	</div>
+</div>

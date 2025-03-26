@@ -1,0 +1,33 @@
+﻿@using Abp.Authorization.Users
+@using internPJ3.Web.Models.Common.Modals
+@using internPJ3.Web.Models.Product
+@model DetailsProductModel
+
+@{
+  Layout = null;
+}
+
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Details Product")))
+
+<div class="container">
+  
+  <div class="DetailP row">
+    <!-- Phần bên trái: Ảnh căn giữa -->
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <img src="@Model.DetailsProductM.ProductImagePath" alt="@L("Product Image")" class="img-responsive img-thumbnail" style="height:208px;width:460px" />
+                                             
+    </div>
+
+    <!-- Phần bên phải: Tiêu đề và văn bản -->
+    <div class="col-md-6 d-flex flex-column justify-content-center">
+      <h2 class="mb-3">@Model.DetailsProductM.ProductName</h2>
+      <input type="hidden" name="Id" value="@Model.DetailsProductM.Id" />
+      <p><strong>@L("Product Price"):</strong> @Model.DetailsProductM.ProductPrice.ToString("N0").Replace(",", ".")</p>
+      <p><strong>@L("Product Description"):</strong> @Model.DetailsProductM.ProductDescription</p>
+      <p><strong>@L("Quantity"):</strong> @Model.DetailsProductM.ProductQuantity</p>
+      @* <p><strong>Category:</strong> @(Model.DetailsProductM.CategoryName) ?? ("Null")</p> *@
+    </div>
+  </div>
+</div>
+
+<script src="~/view-resources/Views/Product/_DetailsModal.js" asp-append-version="true"></script>
