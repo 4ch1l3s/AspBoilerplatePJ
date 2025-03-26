@@ -18,6 +18,8 @@ namespace internPJ3.Web.Models.Cart
 		public string Address { get; set; }
 		public string PhoneNumber { get; set; }
 		public int Coupon { get; set; }
+
+		public int TotalPrice { get; set; }
 		public List<CartItemListDto> CartItemList { get; set; }
 	}
 }

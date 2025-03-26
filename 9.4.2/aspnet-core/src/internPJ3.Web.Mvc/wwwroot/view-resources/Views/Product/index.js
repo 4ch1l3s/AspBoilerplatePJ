@@ -68,8 +68,6 @@
         data: 'productQuantity',
         sortable: false,
       },
-
-
       {
         targets: 6,
         data: null,

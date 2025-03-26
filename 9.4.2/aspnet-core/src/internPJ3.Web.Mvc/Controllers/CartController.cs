@@ -76,7 +76,7 @@ namespace internPJ3.Web.Controllers
 			}
 			else
 			{
-				await _cartService.UpdateCartItemQuantity(createCILDto.ProductId, createCILDto.AddQuantity, idCart);
+				await _cartService.UpdateCartItemQuantity(createCILDto.ProductId, createCILDto.OrderQuantity += createCILDto.AddQuantity, idCart);
 			}
 
 			return Ok("Item added to cart!");

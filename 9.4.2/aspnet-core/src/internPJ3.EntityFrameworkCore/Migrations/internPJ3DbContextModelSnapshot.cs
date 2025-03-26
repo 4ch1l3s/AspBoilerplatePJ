@@ -1606,6 +1606,9 @@ namespace internPJ3.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TotalPrice")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -1622,16 +1625,10 @@ namespace internPJ3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CartEId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
                     b.Property<int>("OrderQuantity")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProductFId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductId")
@@ -1639,9 +1636,9 @@ namespace internPJ3.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CartEId");
+                    b.HasIndex("CartId");
 
-                    b.HasIndex("ProductFId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("CartItems");
                 });
@@ -2138,11 +2135,15 @@ namespace internPJ3.Migrations
                 {
                     b.HasOne("internPJ3.Cart.CartE", "CartE")
                         .WithMany()
-                        .HasForeignKey("CartEId");
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("internPJ3.Product.ProductF", "ProductF")
                         .WithMany()
-                        .HasForeignKey("ProductFId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("CartE");
 

@@ -7,6 +7,7 @@
 
 @{
   Layout = "~/Views/Shop/Layout/_ShopLayout2.cshtml";
+  int result;
 }
 
 
@@ -19,8 +20,8 @@
             <tr>
               <th scope="col">@L("Product")</th>
               <th scope="col">@L("Price")</th>
-              <th scope="col">@L("Quantity")</th>
-              <th scope="col">@L("Subtotal")</th>
+              <th scope="col" style="text-align: center;">@L("Quantity")</th>
+              <th scope="col" style="text-align: center;">@L("Subtotal")</th>
             </tr>
           </thead>
           <tbody>
@@ -28,8 +29,6 @@
             @* @foreach (var item in Model.CartItemList.FirstOrDefault().ListProducts) *@
             @foreach (var item in Model.CartItemList)
             {
-             @*  @foreach (var item in ressult.ListProducts)
-              { *@
                 <tr>
                   <td class="d-flex align-items-center">
                   <img src="@item.ProductImagePath" class="img-fluid mr-3" style="width: 100px; height: 100px;">
@@ -37,9 +36,11 @@
                       <p class="mb-1 text-break">@item.ProductName</p>
                     </div>
                   </td>
-                  <td class="">@item.ProductPrice</td>
-                  <td style="width: 130px;">
-                    <div class="input-group">
+                  <td style="vertical-align: middle;">@item.ProductPrice</td>
+                  <td style="width: 130px;vertical-align: middle; ">
+
+
+                    <div class="input-group" >
                       <div class="input-group-prepend">
                         <button class="btn btn-outline-info " type="button">-</button>
                       </div>
@@ -48,19 +49,22 @@
                         <button class="btn btn-outline-info " type="button">+</button>
                       </div>
                     </div>
+
+
+
+
                   </td>
-                  <td>@item.ProductPrice * @item.OrderQuantity</td>
+                <td style="text-align: center; vertical-align: middle;">@(item.ProductPrice * item.OrderQuantity)</td>
+                <td class="d-none">@(Model.TotalPrice += item.ProductPrice * item.OrderQuantity)</td>
                 </tr>
-              @* } *@
-              
             }
             @*End For Each*@
           </tbody>
         </table>
         <div class="d-flex justify-content-between mt-4">
-          <button class="btn btn-outline-info">
-            <i class="fas fa-arrow-left"></i> Tiếp tục xem sản phẩm
-          </button>
+          <a class="btn btn-outline-info" href="Shop/Products">
+            <i class="fas fa-arrow-left"></i> @L("ContinueViewProduct")
+          </a>
           
         </div>
       </div>
@@ -69,11 +73,13 @@
           <h2 class="h5 font-weight-bold mb-4">CỘNG GIỎ HÀNG</h2>
           <div class="d-flex justify-content-between mb-2">
             <span>Tạm tính</span>
-            <span>61.980.000₫</span>
+            <span>@Model.TotalPrice</span>
           </div>
           <div class="d-flex justify-content-between mb-4">
             <span>Tổng</span>
-            <span>61.980.000₫</span>
+            <span>
+              @(Model.TotalPrice + (Model.TotalPrice * Model.Coupon) / 100)
+            </span>
           </div>
           @* <button class="btn btn-danger btn-block mb-2" style="border-radius: 0.25rem;"> *@
           @*   MUA NGAY<br>Giao Tận Nơi Hoặc Nhận Tại Cửa Hàng *@
@@ -87,10 +93,10 @@
           <button class="btn btn-info btn-block mb-4" style="border-radius: 0.25rem;">Tiến hành thanh toán</button>
           <div class="bg-white p-4 rounded shadow">
             <h3 class="h6 font-weight-bold mb-2">
-              <i class="fas fa-tag"></i> Phiếu ưu đãi
+              <i class="fas fa-tag"></i> @L("Coupons")
             </h3>
-            <input type="text" class="form-control mb-2" placeholder="Mã ưu đãi">
-            <button class="btn btn-secondary btn-block">Áp dụng</button>
+            <input type="text" class="form-control mb-2" placeholder="@L("EnterCoupon")">
+            <button class="btn btn-secondary btn-block">@L("Apply")</button>
           </div>
         </div>
       </div>
@@ -107,4 +113,4 @@
 
 
 
-@* <script src="~/view-resources/Views/Shop/_Cart.js" asp-append-version="true"></script> *@
+<script src="~/view-resources/Views/Cart/index.js" asp-append-version="true"></script>

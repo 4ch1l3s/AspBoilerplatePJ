@@ -75,7 +75,7 @@ namespace internPJ3.Cart
 			var product = await _productRepository.FirstOrDefaultAsync(p => p.Id == input.ProductId); //Lấy ra product trùng với product Id nhận vào từ input
 			CartItemE cartItemE = new CartItemE(); //Tự động gen Id
 			cartItemE.ProductId = product.Id;
-			cartItemE.OrderQuantity = input.OrderQuantity;
+			cartItemE.OrderQuantity = 1;
 			cartItemE.CartId = input.CartId; //?
 			
 			await _cartItemRepository.InsertAsync(cartItemE);
@@ -124,6 +124,8 @@ namespace internPJ3.Cart
 			}
 		).ToListAsync();
 
+			var TotalCount =  itemList.Count();
+
 			var GetAll = new GetAllCartDto
 			{
 				CartStatus = cart.CartStatus,
@@ -159,7 +161,7 @@ namespace internPJ3.Cart
 				throw new Exception("Must login to update cart item");
 			}
 			var result = await _cartItemRepository.FirstOrDefaultAsync(c => c.ProductId == ProductId && c.CartId == CartId); //Không sử dụng GetAll vì GetAll không hỗ trợ tìm theo điều kiện, điều kiện hiệ tại là tìm theo ProductId
-			result.OrderQuantity += NewQuantity;
+			result.OrderQuantity = NewQuantity;
 			await _cartItemRepository.UpdateAsync(result); 
 		}
 	}
