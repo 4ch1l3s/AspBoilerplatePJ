@@ -22,6 +22,8 @@
     });
   }
 
+
+  //Logic phân trang
   function updatePagination(currentPage) {
     $(".pagination .page-item").removeClass("active disabled");
 

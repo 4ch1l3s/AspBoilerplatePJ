@@ -38,8 +38,13 @@ namespace internPJ3.Category
 			var category = await _categoryRepository.GetAllAsync();  //sách products từ database
 			var product = await _productRepository.GetAllAsync();
 
+			//Logic của Search
+			if (!string.IsNullOrEmpty(input.SearchString))
+			{
+				category = category.Where(n => n.CategoryDescription.Contains(input.SearchString) ||
+																			 n.CategoryName.Contains(input.SearchString));
+			}
 
-		
 
 			var TotalCount = await category.CountAsync(); //đếm dữ liệu có trong bảng
 

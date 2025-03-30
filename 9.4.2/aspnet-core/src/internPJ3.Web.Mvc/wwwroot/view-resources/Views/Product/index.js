@@ -253,10 +253,11 @@
 
   //Validate Product Create Form
   $("#ProductCreateForm").validate({
-    onfocusout: function (element) {
-      console.log(element);
-      $(element).valid(); // Kiểm tra lỗi khi rời khỏi ô input
-    },
+      onfocusout: function (element) {
+ 
+    $(element).valid(); // Kiểm tra lỗi của riêng element đó
+    $("#ProductCreateForm").valid(); // Kiểm tra toàn bộ form sau khi rời khỏi một input
+  },
     onkeyup: false,
     onclick: false,
     rules: {

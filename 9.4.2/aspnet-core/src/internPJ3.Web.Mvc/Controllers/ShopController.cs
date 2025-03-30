@@ -57,14 +57,15 @@ namespace internPJ3.Web.Controllers
 		//Get-All Products
 		public async Task<ActionResult> Products(GetAllProductsDto input, int pageSize = 8, int page = 1)
 		{
-			input.PLocation = "Products";
+			input.PLocation = "Products"; //Truyền dữ liệu về cho service
 			input.SkipCount = (page - 1) * pageSize;
+			var outputItem = (await _shopService.GetAll(input)).Items;
 			var output = await _shopService.GetAll(input);
-			var outputItem = output.Items;
-			var leftNavResult = await _shopService.LeftNav(input);
 
 			int totalProductCount = output.TotalCount;
 			int totalPage = (int)Math.Ceiling((double)totalProductCount / pageSize);
+
+			var leftNavResult = await _shopService.LeftNav(input);
 
 			var model = new ShopModel
 			{
@@ -74,9 +75,29 @@ namespace internPJ3.Web.Controllers
 				PageSize = pageSize,
 				Categories = leftNavResult.Items.ToList()
 			};
-
-			return View("_Products", model);
+			return View(model);
 		}
+		//{
+		//	input.PLocation = "Products";
+		//	input.SkipCount = (page - 1) * pageSize;
+		//	var output = await _shopService.GetAll(input);
+		//	var outputItem = output.Items;
+		//	var leftNavResult = await _shopService.LeftNav(input);
+
+		//	int totalProductCount = output.TotalCount;
+		//	int totalPage = (int)Math.Ceiling((double)totalProductCount / pageSize);
+
+		//	var model = new ShopModel
+		//	{
+		//		ProductList = outputItem,
+		//		TotalPage = totalPage,
+		//		CurrentPage = page,
+		//		PageSize = pageSize,
+		//		Categories = leftNavResult.Items.ToList()
+		//	};
+
+		//	return View("_Products", model);
+		//}
 
 		//Details
 		public async Task<IActionResult> Details(int Id)

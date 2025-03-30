@@ -1,6 +1,18 @@
 ﻿@using internPJ3.Web.Views.Shared.Components.RightNavbarLanguageSwitch
 @using internPJ3.Web.Views.Shared.Components.RightNavbarUserArea
 
+<script>
+  function getQueryParam(param) {
+    let urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param) || ''; // Trả về chuỗi rỗng nếu không có tham số
+  }
+
+  $(document).ready(function () {
+    $("#searchInput").val(getQueryParam("searchString"));
+  });
+</script>
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-3" style="height: 120px;">
   <div class="container-fluid d-flex align-items-center">
     <!-- Logo -->
@@ -10,7 +22,7 @@
 
     <!-- Thanh tìm kiếm -->
     <form id="searchForm" class="d-flex mx-3 flex-grow-1 justify-content-center" style="max-width: 50%;" method="GET" action="/Shop/Products">
-      <input name="searchString" id="searchInput" class="form-control me-2" type="search" placeholder="@L("Placeholder")" aria-label="Search"
+      <input name="searchString" id="searchInput" class="form-control me-2" type="search" value="" placeholder="@L("Placeholder")" aria-label="Search"
              style="border-radius: 0; height: 40px; flex: 1;">
       <button class="btn" type="submit" id="searchButton" style="border-radius: 0; background-color: #17a2b8 ; color: white; height: 40px; width: 40px;">
         <i class="fa fa-search"></i>

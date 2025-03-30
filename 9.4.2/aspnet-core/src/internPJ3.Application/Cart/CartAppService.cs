@@ -25,6 +25,7 @@ using internPJ3.Cart.DTO;
 using internPJ3.Authorization.Users;
 using internPJ3.Products;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNetCore.Mvc;
 
 
 
@@ -128,6 +129,7 @@ namespace internPJ3.Cart
 
 			var GetAll = new GetAllCartDto
 			{
+				Id = cart.Id,
 				CartStatus = cart.CartStatus,
 				Address = cart.Address,
 				PhoneNumber = cart.PhoneNumber,
@@ -164,5 +166,9 @@ namespace internPJ3.Cart
 			result.OrderQuantity = NewQuantity;
 			await _cartItemRepository.UpdateAsync(result); 
 		}
+
+
+
+
 	}
 }

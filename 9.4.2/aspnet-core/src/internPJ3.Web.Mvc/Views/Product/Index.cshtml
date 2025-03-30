@@ -25,13 +25,23 @@
 				<div class="card">
 					<div class="card-header">
 						<div class="row">
+
 							<div class="col-md-6">
-								<form>
-									<input name="searchString" id="searchInput" class=" form-control me-1" placeholder=@L("Search") type="search" arial-label="Search" />
-									<button class=" btn bg-blue" type="submit" id="searchButton">@L("Search")</button>
+								<form id="searchForm" class="d-flex mx-3 flex-grow-1 justify-content-center" style="max-width: 80%;">
+									<input name="searchString" id="searchInput" class="form-control me-2" type="search" placeholder="@L("Placeholder")" aria-label="Search"
+												 style="border-radius: 0; height: 40px; flex: 1;">
+									<button class="btn" type="submit" id="searchButton" style="border-radius: 0; background-color: #007BFF ; color: white; height: 40px; width: 40px;">
+										<i class="fa fa-search"></i>
+									</button>
 								</form>
-								
 							</div>
+
+
+			
+
+
+
+
 
 
 							<div class="col-md-4">

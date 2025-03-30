@@ -10,6 +10,7 @@ using internPJ3.Cart;
 using internPJ3.Controllers;
 using Abp.Runtime.Session;
 using internPJ3.Cart.DTO;
+using internPJ3.Product;
 
 namespace internPJ3.Web.Controllers
 {
@@ -76,11 +77,13 @@ namespace internPJ3.Web.Controllers
 			}
 			else
 			{
-				await _cartService.UpdateCartItemQuantity(createCILDto.ProductId, createCILDto.OrderQuantity += createCILDto.AddQuantity, idCart);
+			
+				await _cartService.UpdateCartItemQuantity(createCILDto.ProductId, cartItem.OrderQuantity += createCILDto.AddQuantity, idCart);
 			}
 
 			return Ok("Item added to cart!");
 		}
+
 
 
 

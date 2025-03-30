@@ -19,6 +19,7 @@ namespace internPJ3.Category.DTO
 		public int ProductCount { get; set; }
 		public string CategoryName { get; set; }
 		public string? CategoryDescription { get; set; }
+		public string? SearchString { get; set; }
 		//public DateTime CreationTime { get; set; }
 
 	}

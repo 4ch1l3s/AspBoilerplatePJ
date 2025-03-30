@@ -13,7 +13,7 @@
     listAction: {
       ajaxFunction: _categoryService.getAll,
       inputFilter: function () {
-        return $('#CategorySearchForm').serializeFormToObject(true);
+        return { searchString: $('#searchInput').val() }; // Lấy giá trị nhập vào
       }
     },
     buttons: [
@@ -149,6 +149,12 @@
       }
     );
   }
+  $('#searchButton').on('click', function (e) {
+    //console.log($('#searchInput').val())
+    e.preventDefault(); // Ngăn form gửi request đến server
+    _$CategoryTable.draw(false); // Load lại bảng
+  });
+
 
 
 
@@ -199,7 +205,8 @@
   $('#CategoryCreateModal').on('shown.bs.modal', function () {
     $("#CategoryCreateForm").validate({
       onfocusout: function (element) {
-        $(element).valid(); // Kiểm tra lỗi khi rời khỏi ô input
+        $(element).valid(); // Kiểm tra lỗi của riêng element đó
+        $("#CategoryCreateForm").valid(); // Kiểm tra toàn bộ form sau khi rời khỏi một input
       },
       onkeyup: false,
       onclick: false,

@@ -8,12 +8,70 @@
 
 
 
-<div class="container pt-5" id="product-container">
-  <div class="row">
+<div>
+  <div class=" mb-5 col-sm-11 container " style="" ;>
+    <h1 class="pt-3"">Product</h1>
+    <div id="product-list" style="flex-direction: column;justify-content: center;align-items: center;max-height: 100vh; max-width: 100vw; ">
+      <input type="hidden" name="PLocation" value="Products" />
+      <div class="row pt-2 pl-3 pr-3" style="display: flex;justify-content: center;">
+    @foreach (var item in Model.ProductList)
+    {
+          <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card">
+              <a href="/Shop/Details/@item.Id" class="stretched-link"></a>
+              <img src="@item.ProductImagePath" class="card-img-top" alt="@item.ProductName" style="height: 150px; object-fit: cover;" />
+              <div class="card-body" style="height: 120px;">
+
+                <h5 class="card-title">@item.ProductName</h5>
+                <br />
+                <h5 class="card-title" style="color:red; font-weight: bold;">
+              @item.ProductPrice.ToString("N0").Replace(",", ".") VND
+                </h5>
+              </div>
+              <button class="btn btn-sm btn-info position-relative add-to-cart" style="z-index: 1" data-product-id="@item.Id">@L("AddToCart")</button>
+            </div>
+          </div>
+
+    }
+      </div>
+      @*Phân trang mặc định*@
+      <ul style="width:fit-content;margin: auto;" class="pagination" data-total-pages="@Model.TotalPage">
+        <li class="page-item prev @(Model.CurrentPage == 1 ? "disabled" : "")">
+          <a href="#" class="page-link" data-page="@(Model.CurrentPage - 1)">@L("Previous")</a>
+        </li>
+
+        @for (int i = 1; i <= Model.TotalPage; i++)
+        {
+          <li class="page-item page-number @(i == Model.CurrentPage ? "active" : "")" data-page="@i">
+            <a href="#" class="page-link" data-page="@i">@i</a>
+          </li>
+        }
+
+        <li class="page-item next @(Model.CurrentPage == Model.TotalPage ? "disabled" : "")">
+          <a href="#" class="page-link" data-page="@(Model.CurrentPage + 1)">@L("Next")</a>
+        </li>
+      </ul>
+
+
+
+      @* Phânz trang 2 nút 
+      <ul class="pagination d-flex justify-content-between w-100" data-total-pages="@Model.TotalPage">
+        <li class="page-item prev @(Model.CurrentPage == 1 ? "disabled" : "")">
+          <a href="#" class="page-link" data-page="@(Model.CurrentPage - 1)">@L("Previous")</a>
+        </li>
+
+        <li class="page-item next @(Model.CurrentPage == Model.TotalPage ? "disabled" : "")">
+          <a href="#" class="page-link" data-page="@(Model.CurrentPage + 1)">@L("Next")</a>
+        </li>
+      </ul>*@
+
+    </div>
 
  
+  </div>
+</div>
 
-    @foreach (var item in Model.ProductList)
+    @*@foreach (var item in Model.ProductList)
     {
       <div class="col-md-3 col-sm-6 mb-3">
         <div class="card">
@@ -35,9 +93,13 @@
 
   </div>
 </div>
+*@ 
+
+
+
 
 <!-- View More Button -->
-@if (Model.CurrentPage < Model.TotalPage)
+@*@if (Model.CurrentPage < Model.TotalPage)
 {
   <div class="row justify-content-center mt-3">
     <button id="view-more-btn" class="btn btn-primary"
@@ -47,7 +109,7 @@
       @L("View More")
     </button>
   </div>
-}
+}*@
 
 
 <script src="~/view-resources/Views/Shop/_Products.js" asp-append-version="true"></script>

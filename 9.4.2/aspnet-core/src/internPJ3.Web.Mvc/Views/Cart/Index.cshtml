@@ -36,17 +36,17 @@
                       <p class="mb-1 text-break">@item.ProductName</p>
                     </div>
                   </td>
-                  <td style="vertical-align: middle;">@item.ProductPrice</td>
+                  <td class="product-price" style="vertical-align: middle;">@item.ProductPrice</td>
                   <td style="width: 130px;vertical-align: middle; ">
 
 
                     <div class="input-group" >
                       <div class="input-group-prepend">
-                        <button class="btn btn-outline-info " type="button">-</button>
+                      <button class="btn btn-outline-info cart-decrement" type="button">-</button>
                       </div>
-                      <input type="text" class="form-control text-center " value="@item.OrderQuantity" style="width: 40px; max-width: 40px;">
+                    <input type="text" class="form-control text-center input-quantity" data-cart-id="@Model.Id" data-product-id="@item.ProductId" value="@item.OrderQuantity" style="width: 40px; max-width: 40px;">
                       <div class="input-group-append">
-                        <button class="btn btn-outline-info " type="button">+</button>
+                      <button class="btn btn-outline-info cart-increment" type="button">+</button>
                       </div>
                     </div>
 
@@ -54,8 +54,10 @@
 
 
                   </td>
-                <td style="text-align: center; vertical-align: middle;">@(item.ProductPrice * item.OrderQuantity)</td>
-                <td class="d-none">@(Model.TotalPrice += item.ProductPrice * item.OrderQuantity)</td>
+
+                <td class="sub-total" style="text-align: center; vertical-align: middle;">@(item.ProductPrice * item.OrderQuantity)</td>
+                <td class="d-none">@(Model.TotalPrice)</td>
+
                 </tr>
             }
             @*End For Each*@
@@ -71,15 +73,17 @@
       <div class="col-md-3">
         <div class="bg-light p-4 rounded">
           <h2 class="h5 font-weight-bold mb-4">CỘNG GIỎ HÀNG</h2>
-          <div class="d-flex justify-content-between mb-2">
+
+          <div class="d-flex justify-content-between mb-2 total-price-container">
             <span>Tạm tính</span>
-            <span>@Model.TotalPrice</span>
+            <span class="total-price">@Model.TotalPrice</span>
           </div>
-          <div class="d-flex justify-content-between mb-4">
+
+          <div class="d-flex justify-content-between mb-4 ">
             <span>Tổng</span>
             <span>
               @(Model.TotalPrice + (Model.TotalPrice * Model.Coupon) / 100)
-            </span>
+            </span >
           </div>
           @* <button class="btn btn-danger btn-block mb-2" style="border-radius: 0.25rem;"> *@
           @*   MUA NGAY<br>Giao Tận Nơi Hoặc Nhận Tại Cửa Hàng *@

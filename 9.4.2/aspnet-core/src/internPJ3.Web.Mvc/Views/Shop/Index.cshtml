@@ -5,31 +5,31 @@
 }
 <!-- Slider -->
 <div id="ContainerSlider" class=" pt-5">
-  @* <div id="Slider" class="carousel slide " data-bs-ride="carousel" style="width: 80%; margin: auto;"> *@
-  @*   <div class="carousel-inner"> *@
-  @*     <div class="carousel-item active" data-bs-interval="3000" style="height: 400px; background-color: #ddd;"> *@
-  @*       <img src="~/img/Shop/SliderImg/slide1.png" class="d-block w-100" style="height: 100%; object-fit: cover;" alt="Slide 1"> *@
-  @*     </div> *@
-  @*     <div class="carousel-item" data-bs-interval="3000" style="height: 400px; background-color: #ccc;"> *@
-  @*       <img src="~/img/Shop/SliderImg/slide2.png" class="d-block w-100" style="height: 100%; object-fit: cover;" alt="Slide 2"> *@
-  @*     </div> *@
-  @*     <div class="carousel-item" data-bs-interval="3000" style="height: 400px; background-color: #bbb;"> *@
-  @*       <img src="~/img/Shop/SliderImg/slide3.png" class="d-block w-100" style="height: 100%; object-fit: cover;" alt="Slide 3"> *@
-  @*     </div> *@
-  @*   </div> *@
+  <div id="Slider" class="carousel slide " data-bs-ride="carousel" style="width: 80%; margin: auto;">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="3000" style="height: 400px; background-color: #ddd;">
+        <img src="~/img/Shop/SliderImg/slide1.png" class="d-block w-100" style="height: 100%; object-fit: cover;" alt="Slide 1">
+      </div>
+      <div class="carousel-item" data-bs-interval="3000" style="height: 400px; background-color: #ccc;">
+        <img src="~/img/Shop/SliderImg/slide2.png" class="d-block w-100" style="height: 100%; object-fit: cover;" alt="Slide 2">
+      </div>
+      <div class="carousel-item" data-bs-interval="3000" style="height: 400px; background-color: #bbb;">
+        <img src="~/img/Shop/SliderImg/slide3.png" class="d-block w-100" style="height: 100%; object-fit: cover;" alt="Slide 3">
+      </div>
+    </div>
 
     
-  @*   <button class="carousel-control-prev" type="button" data-bs-target="#Slider" data-bs-slide="prev"> *@
-  @*     <span class="carousel-control-prev-icon" aria-hidden="true"></span> *@
-  @*     <span class="visually-hidden"></span> *@
-  @*   </button> *@
-  @*   <button class="carousel-control-next" type="button" data-bs-target="#Slider" data-bs-slide="next"> *@
-  @*     <span class="carousel-control-next-icon" aria-hidden="true"></span> *@
-  @*     <span class="visually-hidden"></span> *@
-  @*   </button> *@
+    <button class="carousel-control-prev" type="button" data-bs-target="#Slider" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#Slider" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"></span>
+    </button>
 
 
-  @* </div> *@
+  </div>
 
 
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 80%; margin: auto;">
@@ -60,10 +60,12 @@
 @*Product Render*@
 <div>
   <div class="border border-info mt-5 mb-5 col-sm-11 container " style="border-width: 4px !important";>
-    <div class="row pt-5 pl-3 pr-3" id="product-list">
+    <div class="row pt-5 pl-3 pr-3" id="product-list" style="  display: flex;justify-content: center; ">
 
       <input type="hidden" name="PLocation" value="Home"  />
 
+
+      
       @foreach (var item in Model.ProductList)
       {
         <div class="col-md-3 col-sm-6 mb-3">
@@ -84,29 +86,28 @@
 
       }
       
-      @*
-        Phân trang mặc định*@
       
-      @* <ul class="pagination" data-total-pages="@Model.TotalPage"> *@
-      @*   <li class="page-item prev @(Model.CurrentPage == 1 ? "disabled" : "")"> *@
-      @*     <a href="#" class="page-link" data-page="@(Model.CurrentPage - 1)">@L("Previous")</a> *@
-      @*   </li> *@
+      @*Phân trang mặc định*@
+      <ul class="pagination" data-total-pages="@Model.TotalPage" >
+        <li class="page-item prev @(Model.CurrentPage == 1 ? "disabled" : "")">
+          <a href="#" class="page-link" data-page="@(Model.CurrentPage - 1)">@L("Previous")</a>
+        </li>
 
-      @*   @for (int i = 1; i <= Model.TotalPage; i++) *@
-      @*   { *@
-      @*     <li class="page-item page-number @(i == Model.CurrentPage ? "active" : "")" data-page="@i"> *@
-      @*       <a href="#" class="page-link" data-page="@i">@i</a> *@
-      @*     </li> *@
-      @*   } *@
+        @for (int i = 1; i <= Model.TotalPage; i++)
+        {
+          <li class="page-item page-number @(i == Model.CurrentPage ? "active" : "")" data-page="@i">
+            <a href="#" class="page-link" data-page="@i">@i</a>
+          </li>
+        }
 
-      @*   <li class="page-item next @(Model.CurrentPage == Model.TotalPage ? "disabled" : "")"> *@
-      @*     <a href="#" class="page-link" data-page="@(Model.CurrentPage + 1)">@L("Next")</a> *@
-      @*   </li> *@
-      @* </ul> *@
+        <li class="page-item next @(Model.CurrentPage == Model.TotalPage ? "disabled" : "")">
+          <a href="#" class="page-link" data-page="@(Model.CurrentPage + 1)">@L("Next")</a>
+        </li>
+      </ul>
 
 
 
-      @* Phânz trang 2 nút *@
+      @* Phânz trang 2 nút 
       <ul class="pagination d-flex justify-content-between w-100" data-total-pages="@Model.TotalPage">
         <li class="page-item prev @(Model.CurrentPage == 1 ? "disabled" : "")">
           <a href="#" class="page-link" data-page="@(Model.CurrentPage - 1)">@L("Previous")</a>
@@ -115,7 +116,7 @@
         <li class="page-item next @(Model.CurrentPage == Model.TotalPage ? "disabled" : "")">
           <a href="#" class="page-link" data-page="@(Model.CurrentPage + 1)">@L("Next")</a>
         </li>
-      </ul>
+      </ul>*@
 
 
 
